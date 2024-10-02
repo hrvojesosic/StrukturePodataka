@@ -1,2 +1,2 @@
 # StrukturePodataka
-Strukture Podataka 2024
+Strukture Podataka 2024, neka promjena
