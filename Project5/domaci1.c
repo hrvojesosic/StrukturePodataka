@@ -55,8 +55,9 @@ int count_rows(char* filename) { //Brojimo redove i vracamo broj redova odnosno 
 int citaj(char* filename, int broj_studenata) { //Citanje podataka iz svakog retka
     FILE* fp = NULL;
     student* Studenti;
+    char buffer[BUFFER_SIZE];
     int i = 0;
-    //din. alokacija memorije
+    //din. alokacija memorijee
     Studenti = (student*)malloc(broj_studenata * sizeof(student));
     if (Studenti == NULL) {
         printf("Neuspjela alokacija memorije");
@@ -74,8 +75,9 @@ int citaj(char* filename, int broj_studenata) { //Citanje podataka iz svakog ret
     double relativni;
     for (i = 0; i < broj_studenata; i++) {
         //Datoteka izgleda: ime prezime bodovi
-        fscanf(fp, "%19s %19s %d", Studenti[i].ime, Studenti[i].prezime, &Studenti[i].bodovi);
-
+        //fscanf(fp,"%19s %19s %d",Studenti[i].ime,Studenti[i].prezime,&Studenti[i].bodovi);
+        fgets(buffer, BUFFER_SIZE, fp);
+        sscanf(buffer, "%19s %19s %d", Studenti[i].ime, Studenti[i].prezime, &Studenti[i].bodovi);
 
     }
     printf("\n");
